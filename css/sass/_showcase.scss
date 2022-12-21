@@ -1,0 +1,103 @@
+/**
+ * Showcase
+ */
+
+.showcase{
+    background: #fff;
+    margin-top: 30px;
+    
+    > h2{
+        padding: 30px 0;
+        text-align: center;
+        text-transform: uppercase;
+        
+        @media screen and (max-width: $sm){
+            padding: 30px 5px;
+        }
+        
+        /*
+        &:before{
+            border-bottom: 1px solid #e1e1e1;
+            content: '';
+            display: block;
+            margin-bottom: -25px;
+        }*/
+        
+        strong{
+            background: #fff;
+            color: #231f20;
+            padding: 0 20px;
+            text-align: center;
+            @include typo(2.5rem, 400, $font, 2.5rem);
+        }
+    }
+    #novidades,
+    #acessorios{
+        position: relative;
+    
+        .slick-arrow {
+            border: 0;
+        }
+        .slick-prev,
+        .slick-next{
+            font-size: 0;
+            line-height: 0;
+            position: absolute;
+            top: 40%;
+            display: block;
+            width: 30px;
+            height: 30px;
+            padding: 0;
+            -webkit-transform: translate(0, -50%);
+            -ms-transform: translate(0, -50%);
+            transform: translate(0, -50%);
+            cursor: pointer;
+            color: transparent;
+            border: none;
+            outline: none;
+            background: transparent;
+        }
+        .slick-prev{            
+            left: -20px;            
+            
+            &::before{
+                content: $prev;
+                border-left: 0;
+                border-right: 0;
+                color: black;
+                font-size: 2rem;
+                display: block;
+            }
+        }
+        .slick-next{
+            right: -20px;
+            
+            &::before{
+                content: $next;
+                border-left: 0;
+                border-right: 0;
+                color: black;
+                font-size: 2rem;
+                display: block;
+            }
+        }
+    }
+}
+.acessorios{
+    background: #f8f8f8;
+    padding-bottom: 60px;
+    
+    .showcase{
+        background: #f8f8f8;
+        
+        h2{
+            strong{
+                background: transparent;
+                color: #231f20;
+                padding: 0 20px;
+                text-align: center;
+                @include typo(2.5rem, 400, $font, 2.5rem);
+            }
+        }
+    }
+}

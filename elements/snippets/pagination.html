@@ -1,0 +1,27 @@
+{#
+# Paginate
+# elements/snippets/paginate.html
+#}
+ 
+{{ paginate.counter('Encontramos {:count} produto(s) em {:pages} página(s)') }}
+ 
+{% if paginate.params.pageCount > 1 %}
+    {{ paginate.first('Primeira', {'class': 'page-first'}) }}
+ 
+    {% if paginate.hasPrev %}
+        {{ paginate.prev('Anterior', {'class': 'page-prev'}) }}
+    {% endif %}
+ 
+    {{ paginate.numbers({
+        'modulus': 9,
+        'separator': '',
+        'class': 'page-link',
+        'currentClass': 'page-current'
+    }) }}
+ 
+    {% if paginate.hasNext %}
+        {{ paginate.next('Próxima', {'class': 'page-next'}) }}
+    {% endif %}
+ 
+    {{ paginate.last('Última', {'class': 'page-last'}) }}
+{% endif %}

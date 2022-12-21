@@ -1,0 +1,49 @@
+<header style="background-color: {{ settings.color_bg_header  }};">
+    <!--{% element 'snippets/customer' %}-->
+    
+    <div class="container">        
+        <div class="col-xs-12 wrapper-logo linha meio">
+            {% if pages.current == 'home' %}
+                <h1 class="site-logo" alt="{{ store.name }}">
+                    <a href="{{ links.home }}" data-tray-tst="logotipo_loja">{{ Image('logo') }}</a>
+                </h1>
+            {% else %}
+                <a href="{{ links.home }}" class="site-logo" data-tray-tst="logotipo_loja">{{ Image('logo') }}</a>
+            {% endif %}
+        
+            <div class="hidden-xs fim linha icones-topo">
+                {% element 'snippets/search' %}
+                {% element 'snippets/cart' %}
+                <a class="conta" href="{{ links.central }}" data-tray-tst="meu_cadastro">
+                    <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                    height="20" viewBox="0 0 512 512" width="20" style="enable-background:new 0 0 512 512;" xml:space="preserve"><g><path fill="#231F20" d="M255.9,284.4c73.4,0,132.9-59.5,132.9-132.9S329.3,19,255.9,19S123,78.5,123,151.5S182.5,284.4,255.9,284.4z
+                    M255.9,53.7c53.8,0,97.8,44,97.8,97.8s-44,97.8-97.8,97.8s-97.8-44-97.8-97.8S202.1,53.7,255.9,53.7z"/>
+                    <path fill="#231F20" d="M26,491.9h461.5c9.8,0,17.5-7.7,17.5-17.5c0-91.7-74.6-166.7-166.7-166.7H175.2
+                    c-91.7,0-166.7,74.6-166.7,166.7C8.5,484.1,16.2,491.9,26,491.9z M175.2,342.7h163.1c66.9,0,121.9,49.7,130.4,114.1h-424
+                    C53.3,392.8,108.4,342.7,175.2,342.7z"/></g></svg>
+                </a>
+            </div>
+        </div>
+        
+        
+        <div class="wrapper-nav clearfix visible-xs-block">
+            <div class="col-xs-2">
+                <button class="trigger-menu">
+                    <svg version="1.1" fill="{{ settings.color_menu_icon ? settings.color_menu_icon : '#fff' }}" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="23" height="19" viewBox="0 0 58.535 49.293" enable-background="new 0 0 58.535 49.293" xml:space="preserve"><g><path d="M3.395,6.918h51.746c1.875,0,3.395-1.547,3.395-3.457S57.016,0,55.141,0H3.395C1.52,0,0,1.551,0,3.461C0,5.375,1.52,6.918,3.395,6.918L3.395,6.918z M55.141,21.188H3.395C1.52,21.188,0,22.738,0,24.645c0,1.917,1.52,3.46,3.395,3.46h51.746c1.875,0,3.395-1.547,3.395-3.46C58.535,22.738,57.016,21.188,55.141,21.188L55.141,21.188z M55.141,42.371H3.395C1.52,42.371,0,43.926,0,45.832c0,1.914,1.52,3.461,3.395,3.461h51.746c1.875,0,3.395-1.547,3.395-3.461C58.535,43.926,57.016,42.371,55.141,42.371L55.141,42.371z M55.141,42.371"/></g></svg>
+                </button>
+            </div>
+            <div class="col-xs-8 fim linha">
+                {% element 'snippets/search' %}
+                {% element 'snippets/cart' %}
+                <a class="conta" href="{{ links.central }}" data-tray-tst="meu_cadastro">
+                    <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                    height="20" viewBox="0 0 512 512" width="20" style="enable-background:new 0 0 512 512;" xml:space="preserve"><g><path fill="#231F20" d="M255.9,284.4c73.4,0,132.9-59.5,132.9-132.9S329.3,19,255.9,19S123,78.5,123,151.5S182.5,284.4,255.9,284.4z
+                    M255.9,53.7c53.8,0,97.8,44,97.8,97.8s-44,97.8-97.8,97.8s-97.8-44-97.8-97.8S202.1,53.7,255.9,53.7z"/>
+                    <path fill="#231F20" d="M26,491.9h461.5c9.8,0,17.5-7.7,17.5-17.5c0-91.7-74.6-166.7-166.7-166.7H175.2
+                    c-91.7,0-166.7,74.6-166.7,166.7C8.5,484.1,16.2,491.9,26,491.9z M175.2,342.7h163.1c66.9,0,121.9,49.7,130.4,114.1h-424
+                    C53.3,392.8,108.4,342.7,175.2,342.7z"/></g></svg>
+                </a>
+            </div>
+        </div>
+    </div>
+</header>

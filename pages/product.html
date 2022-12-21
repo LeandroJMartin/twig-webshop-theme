@@ -1,0 +1,129 @@
+{% if banner.title %}
+    <div class="banner banner-title mobile-off">
+        {{ banner.title }}
+    </div>
+{% endif %}	
+{% for discount in ProgressiveDiscounts %}
+   {% if discount.banner %}
+      <img src="{{ discount.banner }}" alt="{{discount.name}}"/>  
+   {% endif %}
+{% endfor %}
+
+<section id="product-container" class="produto-wrapper product-detail" itemscope itemtype="http://schema.org/Product">
+    {% element 'snippets/schema-product' {'product': product} %}
+    
+    <span id="span_erro_carrinho"></span>
+    <div class="clearfix">
+
+        <div class="col-md-6">
+                  
+            {{ productHelper.gallery() }}            
+            
+        </div>
+        
+        <div class="col-md-6">
+            {% if productHelper.banner() %}{{ productHelper.banner() }}{% endif %}
+            
+            <h1 class="product-name" itemprop="name">{{ product.name }}</h1>
+            {% element 'snippets/breadcrumb' { "class": 'breadcrumb'} %}
+            
+            {% element 'product/rating' %}
+            <div class="product-labels">
+                {{ productHelper.labels() }}
+
+                {% for discount in ProgressiveDiscounts %}
+             
+                {% if discount.tag %}
+                    <span class="botao-commerce botao-lancamento"><span class="botao-commerce-bullet-esq">&#8226;</span>
+                    {{discount.tag}}
+                    <span class="botao-commerce-bullet-dir">&#8226;</span></span>
+                {% endif %}
+                
+            {% endfor %}
+            </div>
+            
+            <p class="product-details">
+                {% if settings.show_product_stock %}
+                    <span>Estoque: <b>{{ product.stock }}</b></span>
+                {% endif %}                
+                {{ productHelper.details() }}
+                {{ productHelper.icons() }}
+            </p>
+            
+            <button class="fadePopup tab-modal">Tabela de Medidas</button>
+            
+            {{ productHelper.bonus() }}
+                
+            <form id="form_comprar" method="post" data-app="product.buy-form" action="{{ links.cart_add ~ product.id }}">
+                {{ productHelper.variants() }}
+                {{ product.additional_information }}
+                {{ productHelper.gifts() }}
+                {{ productHelper.kit() }}
+                {% if settings.cache_infopreco %}
+                <div data-module="pricing" data-snippet="snippets/pricing" data-product-id="{{ product.id }}">
+                   <div class="pricing">
+                        Carregando...
+                   </div>
+                </div>
+                 {% else %}
+                    {{ productHelper.pricing() }}
+                {% endif %}
+                {% if not product.upon_request %}
+                    {% element 'snippets/botoes_qty' %}
+                    {{ productHelper.wishlist() }}
+                    {{ productHelper.shipping() }}
+                {% endif %}
+                
+                <div class="shipping-result"></div>
+    
+            </form>
+            
+            
+            {% if product.additional_message %}
+                <div class="mensagem_adicional">{{ product.additional_message }}</div>    
+            {% endif %}   
+            
+			{% if settings.social_position == 1 %}
+				<div class="product-social">
+					{{ productHelper.social() }}
+				</div>
+			{% endif %}
+            
+            <div class="board">
+                <div class="board_htm description">
+                    {{ product.description ? product.description : product.description_small }}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% if productHelper.bundle() %}
+<section class="product-cross-sell">
+    <h4>Aproveite também e</h4>
+    <h3>Compre Junto</h3>
+    {{ productHelper.bundle() }}
+</section>
+{% endif %}
+
+{% if product.related_products %}
+    <div id="prognoos_lsi"></div>
+    <section class="products-related">
+        <h3 class="related-title">Produtos relacionados</h3>
+
+        <div class="slideProduct owl-carousel owl-theme row">
+            {% for related in product.related_products %}
+                <div class="item product">
+                    {% element 'snippets/product' {"product": related} %}
+                </div>
+            {% endfor %}
+        </div>
+
+    </section>
+{% endif %}
+
+{% if banner.bottom %}
+    <div class="banner banner-bottom mobile-off">
+        {{ banner.bottom }}
+    </div>
+{% endif %}

@@ -1,0 +1,33 @@
+{% set showAvailable = settings.show_available_products ? 'available' %}
+
+{% if products|length > 0 %}
+<div class="acessorios">
+    <div class="site-main container">
+    
+        {% set showcaseText = "Acessórios" %}
+
+        {% set products = Products({
+            'filter': 'available',
+            'limit': 16,
+            'order': 'rand',
+            'categories': [5]
+        }) %}
+        <div class="showcase clearfix" data-tray-tst="vitrine_home" itemscope itemtype="https://schema.org/SomeProducts">
+            <h2>
+                <strong>Acessórios</strong>
+            </h2>
+            <ul class="slideProduct owl-carousel owl-theme row showcase-list">
+            {% for product in products %}
+                {% set ranking = product.ranking %}
+
+                <li class="product item {{ settings.radio_cols_mobile }}" data-tray-tst="vitrine_produto">
+                    {% element 'snippets/product' {"product": product} %}
+                </li>
+            {% endfor %}
+            </ul>
+        </div>
+        
+    </div>
+</div>
+{% endif %}
+

@@ -1,0 +1,37 @@
+.barra-topo{
+    
+    background-image: linear-gradient(to right, black, #404041);
+    min-height: 40px;
+    padding: 20px 0;
+    width: 100%;
+    
+    .bx-barra-topo p{
+        color: #c1c1c1;
+        font-size: 1.3rem;
+        text-align: center;
+        
+        @keyframes mudaCor {
+          from{background-color: white;}
+          to{background-color: yellow;}
+        }
+        
+        span{
+            text-transform: uppercase;
+            color: black;
+            font-weight: 700;
+            background-color: white;
+            padding: 7px 15px;
+            animation-name: mudaCor;
+            animation-duration: 3s;
+            animation-delay: 2s;
+            animation-iteration-count: infinite;
+            display: inline-block;
+            margin-bottom: 5px;
+        }
+        strong{
+            color: white;
+        }
+    }
+}
+
+

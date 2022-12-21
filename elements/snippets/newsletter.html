@@ -1,0 +1,8 @@
+<section class="newsletter newsletter-1" data-tray-tst="newsletter_box">
+    <h2>{{ settings.newsletter_titulo }}</h2>
+    <h3>{{ settings.newsletter_texto }}</h3>
+    <form action="{{ links.newsletter }}" method="post" name="newsletter" class="linha">
+        <input name="email" type="email" class="newsletter-email" placeholder="E-mail">
+        <button>{{ settings.newsletter_btn }}</button>
+    </form>
+</section>

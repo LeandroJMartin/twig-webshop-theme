@@ -1,0 +1,52 @@
+<div class="menu-mobile-backdrop visible-xs-block"></div>
+<div class="menu-mobile visible-xs-block">  
+    <h5>Categorias</h5>
+    <ul class="categories-mobile level1">
+        {% for category in categories %}
+            {% if loop.index <= limit or not limit %}
+                <li class="item-level1">
+                    {% if category.children  %}
+                    <input type="checkbox" id="mobile-item-{{ category.id }}" class="level1-check"/>
+                    <label class="link-level1" for="mobile-item-{{ category.id }}" data-tray-tst="categoria_lvl_1">
+                        <i class="pull-right arrow-menu-mobile"><img src="{{ asset('img/arrow-right.svg') }}" height="16" width="16" alt="Seta"></i>
+                        {{ category.name }}
+                    </label>
+                    {% else %}
+                    <a href="{{ category.link }}" class="link-level1" data-tray-tst="categoria_lvl_1">{{ category.name }}</a>
+                    {% endif %}
+                    
+                    {% if category.children  %}
+                        <div class="level2">
+                            <ul>
+                                <li class="item-level2">
+                                    <a href="{{ child.link }}" class="link-level2" data-tray-tst="categoria_lvl_2">Ver todas</a>
+                                </li>
+                                {% for child in category.children %}
+                                    <li class="item-level2">
+                                        <a href="{{ child.link }}" class="link-level2" data-tray-tst="categoria_lvl_2">{{ child.name }}</a>
+                                        {% if child.children  %}
+                                            <div class="level3">
+                                                <ul>
+                                                    {% for child in child.children %}
+                                                        <li class="item-level3">
+                                                            <a href="{{ child.link }}" class="link-level3" data-tray-tst="categoria_lvl_3">{{ child.name }}</a>
+                                                        </li>
+                                                    {% endfor %}
+                                                </ul>
+                                            </div>
+                                        {% endif %}
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    {% endif %}
+                </li>
+            {% endif %}
+        {% endfor %}
+                <li class="item-level1">
+                    <a class="link-level1" href="https://www.mojavefranquias.com.br" target="_blank" alt="Seja um franqueado" data-tray-tst="categoria_lvl_1">
+                        <span>Seja um Franqueado</span>
+                    </a>
+                </li>
+    </ul>
+</div>

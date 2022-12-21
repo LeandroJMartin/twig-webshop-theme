@@ -1,0 +1,11 @@
+{% if banner.home %}
+  <div id="bannerHome" class="owl-carousel owl-theme">
+    {% for slide in banners.home.slides %}
+      <div class="item">
+        <a href="{{ slide.link }}">
+          <img src="{{ slide.image }}" alt="{{ slide.label}}">
+        </a>
+      </div>
+    {% endfor %}
+  </div>
+{% endif %}

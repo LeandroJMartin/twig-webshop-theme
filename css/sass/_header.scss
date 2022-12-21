@@ -1,0 +1,59 @@
+/**
+ * Header
+ */
+ 
+.wrapper-nav{
+    background: #4b8cdc;
+    clear: both;
+}
+
+.wrapper-cart{
+    padding: 0;
+}
+
+.wrapper-logo{
+    height: 150px;
+}
+
+.trigger-menu{
+    background: none;
+    border: none;
+    display: block;
+    margin: 0 auto;
+    padding: 19px 0;
+}
+
+.site-logo {
+    height: 112px;
+    font-size: 0;
+    text-align: center;
+    position: absolute;
+    top: 30px;
+    left: calc(50% - 115px);
+    
+    &:before{
+        content: '';
+        display: inline-block;
+        height: 112px;
+        margin-right: -1%;
+        vertical-align: middle;
+        width: 1%;
+    }
+    
+    img{
+        max-height: 112px;
+        max-width: 99%;
+        vertical-align: middle;
+    }
+}
+.conta {
+    display: block;
+    height: 40px;
+    padding: 0 15px;
+    margin-top: 3px;
+    
+    @media screen and (max-width: $sm){
+        margin-top: 17px;
+        margin-left: 10px;
+    }
+}
